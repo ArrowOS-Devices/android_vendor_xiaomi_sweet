@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+listeners is a statues set,if corresponding position is 1, that mean reg this listener.
+    Now, contain the listener is:
+    receiver,wifi_spot,bluetooth,bluetooth_pan,sarsensor1,sarsensor2,mcc,wifi,cable,hall,usb
+
+    1: need to reg, 0 : don`t reg
+    like for J18 device, listeners that need to reg is:  11111111110
+    like for J3S device, listeners that need to reg is:  11111111100
+    like for J1/J2 device, listeners that need to reg is 11111011000
+
+dsiMap：
+    1. F mean NA,the other state is corresponding listener value.
+    2. wifi_spot,bluetooth,bluetooth_pan is one state: hotSpot.
+
+    receiver,hotSpot,sarsensor1,sarsensor2,mcc,wifi,cable,hall,usb
+
+    like for J18 device:
+        DSI1: 10FF1F00
+        DSI2: 10FF2F00,10FF3F00 == 10FF4F00
+        DSI3: 0020FF00
+        DSI4: 00102F00,00103F00 == 00104F00
+        an so on
+-->
+
+<SarDsiConfig>
+    <deviceSarConfig device_name="sweet">
+        <!-- <prop prop_name="persist.vendor.radio.dynamic_sar">1</prop> -->
+        <prop prop_name="ro.boot.hwc">default</prop>
+        <prop prop_name="ro.product.mod_device"></prop>
+        <!-- receiver,hotSpot(wifi_spot,(bluetooth,bluetooth_pan)),sarsensor1,sarsensor2,mcc,wifi,cable,hall,usb -->
+        <listeners>11111100100</listeners>
+        <dsimap value="10FF0">1</dsimap>
+        <dsimap value="00100">2</dsimap>
+        <dsimap value="00F10">3</dsimap>
+        <dsimap value="00000">4</dsimap>
+        <dsimap value="F1FF0">5</dsimap>
+        <dsimap value="FFFF1">6</dsimap>
+    </deviceSarConfig>
+
+    <!-- only use for test, if you need to use other devices to test, pelease set persist.vendor.radio.dynamic_sar to 2. -->
+    <deviceSarConfig device_name="test">
+        <!-- <prop prop_name="persist.vendor.radio.dynamic_sar">1</prop> -->
+        <prop prop_name="ro.boot.hwc">test</prop>
+        <prop prop_name="ro.product.mod_device">test</prop>
+        <listeners>11111100100</listeners>
+        <dsimap value="10FF0">1</dsimap>
+        <dsimap value="00100">2</dsimap>
+        <dsimap value="00F10">3</dsimap>
+        <dsimap value="00000">4</dsimap>
+        <dsimap value="F1FF0">5</dsimap>
+        <dsimap value="FFFF1">6</dsimap>
+    </deviceSarConfig>
+</SarDsiConfig>
