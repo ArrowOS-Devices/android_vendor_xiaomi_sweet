@@ -1,0 +1,14 @@
+send 20000100
+send 200100
+# RF_DISCOVER_MAP_CMD
+send 21000D04040302050303030201800180
+
+# start polling
+trigger 6105
+trigger 41030100
+# App Bpp
+send 2103050200010101
+
+# sleep 10 seconds
+sleep 10000
+

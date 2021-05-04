@@ -1,0 +1,8 @@
+service fortsense_fpexts_hal /vendor/bin/hw/vendor.fortsense.hardware.fingerprintext@1.0-service
+    class late_start
+    user system
+    group system input
+    disabled
+
+on property:persist.vendor.sys.fp.fs.ext.enable=1
+    start fortsense_fpexts_hal

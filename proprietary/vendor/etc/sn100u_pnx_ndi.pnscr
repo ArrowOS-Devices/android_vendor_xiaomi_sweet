@@ -1,0 +1,7 @@
+send 20000100
+sleep 100
+send 200100
+sleep 100
+# read die-id
+trigger 4003150001A00110
+send 20030301A001sleep 100
