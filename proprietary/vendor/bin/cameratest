@@ -1,0 +1,192 @@
+#!/system/bin/sh
+
+if [ ! -d "/mnt/sdcard/cameratest/" ];then
+  mkdir /mnt/sdcard/cameratest/
+else
+  rm -rf /mnt/sdcard/cameratest/*
+fi
+
+inputKeys=""
+
+camera_id=-1
+camera_format=-1
+camera_aec=-1
+remosic_type=-1
+show_resolution=-1
+omit_focus=-1
+ois_mode=-1
+lens_dist=-1
+save_meta=-1
+iso_value=-1
+exposure_value=-1
+
+#tips
+tips( )
+{
+    echo "cameratest -n CAMERAID -f FORMAT [-r REMOSIC] [-a AEC_LEVEL]
+          [-s ISO] [-e exposureMs] [-d DIST] [-i OIS] [-o] [-x] [-k]"
+    echo "                              "
+    echo "tips:"
+    echo "-n cameraId
+            0 back-main-camera
+            1 front-main-camera
+            20 back-tele-camera
+            21 back-ultra-camera
+            22 back-macro-camera
+            23 back-tele4x-camera
+            24 back-macro2x-camera
+            25 back-depth-camera
+            40 front-aux-camera"
+
+    echo "-f FORMAT
+            0 jpg(not waiting AF)
+            1 yuv(yuv420)
+            2 raw(mipi10)
+            3 raw(raw16)
+            4 jpg(waiting af)"
+
+    echo "-a AEC_LEVEL"
+
+    echo "-r REMOSAIC
+            0 full size
+            1 Binning size
+            2 disable(default)"
+
+    echo "-i OIS_MODE
+            0 server_on
+            1 active"
+
+    echo "-d LENS_FOCUS_DISTANCE"
+
+    echo "-s sensitivity value"
+
+    echo "-e exposure time(ms)"
+
+    echo "-o (omit focus)"
+    echo "-x filename contains resolution"
+    echo "-k save meta to file"
+    echo "                              "
+    echo "output:/mnt/sdcard/cameratest/cameraId_FORMAT_REMOSAIC.format"
+    echo "                              "
+}
+
+#deal input parameters
+while getopts n:f:r:a:i:d:s:e:oxk OPT
+do
+    case $OPT in
+        n)
+            camera_id=$OPTARG;;
+        f)
+            camera_format=$OPTARG;;
+        r)
+            remosic_type=$OPTARG;;
+        a)
+            camera_aec=$OPTARG;;
+        i)
+            ois_mode=$OPTARG;;
+        d)
+            lens_dist=$OPTARG;;
+        s)
+            iso_value=$OPTARG;;
+        e)
+            exposure_value=$OPTARG;;
+        o)
+            omit_focus=1;;
+        k)
+            save_meta=1;;
+        x)
+            show_resolution=1;;
+        ?)
+            tips
+            exit 1;;
+    esac
+done
+
+#check parameters
+if [ $camera_id = -1 ]; then
+    tips
+    exit 1
+fi;
+
+if [ $camera_format = -1 ]; then
+    tips
+    exit 1
+fi;
+
+inputKeys=$inputKeys" --es camera "$camera_id
+inputKeys=$inputKeys" --ei testType "$camera_format
+if [ $camera_aec != -1 ]; then
+    inputKeys=$inputKeys" --ei aec "$camera_aec
+fi;
+
+if [ $remosic_type != -1 ]; then
+    inputKeys=$inputKeys" --ei remosicType "$remosic_type
+fi;
+
+if [ $show_resolution != -1 ]; then
+    inputKeys=$inputKeys" --ei showResolution "$show_resolution
+fi;
+
+if [ $omit_focus != -1 ]; then
+    inputKeys=$inputKeys" --ei omitFocus "$omit_focus
+fi;
+
+if [ $ois_mode != -1 ]; then
+    inputKeys=$inputKeys" --ei oisMode "$ois_mode
+fi;
+
+if [ $lens_dist != -1 ]; then
+    inputKeys=$inputKeys" --ef lensDis "$lens_dist
+fi;
+
+if [ $save_meta != -1 ]; then
+    inputKeys=$inputKeys" --ei meta "$save_meta
+fi;
+
+if [ $iso_value != -1 ]; then
+    inputKeys=$inputKeys" --ei sensitivity "$iso_value
+fi;
+
+if [ $exposure_value != -1 ]; then
+    fraction=$(echo $exposure_value | grep "/")
+    if [[ "$fraction" != "" ]]
+    then
+        OLD_IFS="$IFS"
+        IFS="/"
+        array=($exposure_value)
+        IFS="$OLD_IFS"
+
+        if [ ${#array[@]} = 2 ]; then
+            exposure_value=`echo ${array[@]} | awk '{printf("%d\n",(1000*$1)/$2)}'`
+        fi;
+    else
+        exposure_value=`echo $exposure_value | awk '{printf("%d\n",$1*1000)}'`
+    fi;
+    inputKeys=$inputKeys" --ei exposureUs "$exposure_value
+fi;
+
+#kill old app
+#pm clear com.xiaomi.cameratest
+
+am start -n com.xiaomi.cameratest/com.xiaomi.cameratest.CameraTestActivity $inputKeys --activity-clear-top
+
+#temporary sleep 20s to make sure image output done.
+for i in `seq 1 20`
+do
+    sleep 0.5
+    if [ -a /mnt/sdcard/cameratest/*.* ]
+    then
+        image=`ls /mnt/sdcard/cameratest/*.*`
+        size1=`stat -c "%s" ${image}`
+        #echo loop $i start size: ${size1}
+        sleep 1
+        size2=`stat -c "%s" ${image}`
+        #echo loop $i end size: ${size2}
+        if [ "$size1" = "$size2" ];then
+            echo Captured ${image}
+            break
+        fi
+    fi
+done
+
+#end
