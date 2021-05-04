@@ -1,0 +1,15 @@
+send 20000100
+send 200100
+sleep 150
+trigger 6F
+trigger 4F
+send 2F3E0100
+sleep 150
+trigger 6F
+trigger 4F
+send 2F3E0101
+sleep 150
+trigger 6F
+trigger 4F
+send 2F3E0102
+sleep 150

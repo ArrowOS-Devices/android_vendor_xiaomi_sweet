@@ -1,0 +1,7 @@
+# core_reset_ntf
+trigger 400119
+# core_reset_rsp
+trigger 400003
+# core reset
+send 20000101
+sleep 100

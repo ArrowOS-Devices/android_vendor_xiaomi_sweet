@@ -1,0 +1,6 @@
+send 20000100
+sleep 100
+trigger 400119
+# core reset
+send 200100
+sleep 100
