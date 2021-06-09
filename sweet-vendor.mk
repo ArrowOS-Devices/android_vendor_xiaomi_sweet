@@ -1618,7 +1618,6 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/sweet/proprietary/vendor/lib/soundfx/libreverbwrapper.so:$(TARGET_COPY_OUT_VENDOR)/lib/soundfx/libreverbwrapper.so \
     vendor/xiaomi/sweet/proprietary/vendor/lib/soundfx/libshoebox.so:$(TARGET_COPY_OUT_VENDOR)/lib/soundfx/libshoebox.so \
     vendor/xiaomi/sweet/proprietary/vendor/lib/soundfx/libvisualizer.so:$(TARGET_COPY_OUT_VENDOR)/lib/soundfx/libvisualizer.so \
-    vendor/xiaomi/sweet/proprietary/vendor/lib/soundfx/libvolumelistener.so:$(TARGET_COPY_OUT_VENDOR)/lib/soundfx/libvolumelistener.so \
     vendor/xiaomi/sweet/proprietary/vendor/lib/unnhal-acc-hta.so:$(TARGET_COPY_OUT_VENDOR)/lib/unnhal-acc-hta.so \
     vendor/xiaomi/sweet/proprietary/vendor/lib/vendor.display.color@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.display.color@1.0.so \
     vendor/xiaomi/sweet/proprietary/vendor/lib/vendor.display.color@1.1.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.display.color@1.1.so \
@@ -2439,7 +2438,6 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/sweet/proprietary/vendor/lib64/soundfx/libreverbwrapper.so:$(TARGET_COPY_OUT_VENDOR)/lib64/soundfx/libreverbwrapper.so \
     vendor/xiaomi/sweet/proprietary/vendor/lib64/soundfx/libshoebox.so:$(TARGET_COPY_OUT_VENDOR)/lib64/soundfx/libshoebox.so \
     vendor/xiaomi/sweet/proprietary/vendor/lib64/soundfx/libvisualizer.so:$(TARGET_COPY_OUT_VENDOR)/lib64/soundfx/libvisualizer.so \
-    vendor/xiaomi/sweet/proprietary/vendor/lib64/soundfx/libvolumelistener.so:$(TARGET_COPY_OUT_VENDOR)/lib64/soundfx/libvolumelistener.so \
     vendor/xiaomi/sweet/proprietary/vendor/lib64/unnhal-acc-adreno.so:$(TARGET_COPY_OUT_VENDOR)/lib64/unnhal-acc-adreno.so \
     vendor/xiaomi/sweet/proprietary/vendor/lib64/unnhal-acc-common.so:$(TARGET_COPY_OUT_VENDOR)/lib64/unnhal-acc-common.so \
     vendor/xiaomi/sweet/proprietary/vendor/lib64/unnhal-acc-hta.so:$(TARGET_COPY_OUT_VENDOR)/lib64/unnhal-acc-hta.so \
