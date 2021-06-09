@@ -62,5 +62,7 @@ AIEnhancementVersion=2
 FDFilterEngine=FD_Standard_ARM
 enableCHIPartialData=1
 quickviewsupport=TRUE
+quickviewmask=0x2500
 superVideoFilterVersion=1
 isVideoBeautyEISSupported=TRUE
+enableGPURotation=TRUE

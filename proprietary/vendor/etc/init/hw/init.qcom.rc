@@ -422,6 +422,9 @@ on post-fs-data
     #Make MTU adjusting
     write /proc/sys/net/ipv4/tcp_mtu_probing 1
 
+    #Create dir for dolby
+    mkdir /data/vendor/dolby 0770 media media
+
 service nqnfcinfo /system/vendor/bin/nqnfcinfo
     class late_start
     group nfc
