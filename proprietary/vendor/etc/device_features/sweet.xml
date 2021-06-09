@@ -447,6 +447,8 @@
     <!-- whether support multi face input -->
     <bool name="support_multi_face_input">true</bool>
     <bool name="support_multi_face_input_global">true</bool>
+    <!-- whether support_screen_on_delayed -->
+    <bool name="support_screen_on_delayed">true</bool>
     <!-- device head sar value -->
     <float name="device_head_sar">1.070</float>
     <!-- device body sar value -->
