@@ -477,4 +477,5 @@
     <bool name="config_with_gesture_shortcut_settings">true</bool>
     <!-- Whether support decrease brightness for specific apps -->
     <bool name="support_decrease_brightness_spec_app">true</bool>
+    <bool name="remove_vgpaper">true</bool>
 </features>
