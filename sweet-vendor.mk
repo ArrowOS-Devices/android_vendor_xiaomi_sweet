@@ -555,7 +555,6 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/sweet/proprietary/vendor/etc/qdcm_calib_data_rm69298_amoled_fhd+_cmd_mode_dsi_truly_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_rm69298_amoled_fhd+_cmd_mode_dsi_truly_panel.xml \
     vendor/xiaomi/sweet/proprietary/vendor/etc/qdcm_calib_data_rm69298_amoled_fhd+_video_mode_dsi_truly_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_rm69298_amoled_fhd+_video_mode_dsi_truly_panel.xml \
     vendor/xiaomi/sweet/proprietary/vendor/etc/qdcm_calib_data_sharp_1080p_120hz_dual_dsi_cmd_mode_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_sharp_1080p_120hz_dual_dsi_cmd_mode_panel.xml \
-    vendor/xiaomi/sweet/proprietary/vendor/etc/qdcm_calib_data_xiaomi_k6_38_0c_0a_fhd_dsc_video_dsi_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_xiaomi_k6_38_0c_0a_fhd_dsc_video_dsi_panel.xml \
     vendor/xiaomi/sweet/proprietary/vendor/etc/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     vendor/xiaomi/sweet/proprietary/vendor/etc/rcv.wav:$(TARGET_COPY_OUT_VENDOR)/etc/rcv.wav \
     vendor/xiaomi/sweet/proprietary/vendor/etc/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
