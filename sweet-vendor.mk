@@ -1977,7 +1977,6 @@ PRODUCT_PACKAGES += \
     com.qualcomm.qti.improvetouch.service \
     DeviceInfo \
     QtiTelephonyService \
-    datastatusnotification \
     embms \
     WfdService \
     dpmserviceapp \
