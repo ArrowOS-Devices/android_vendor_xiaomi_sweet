@@ -196,12 +196,6 @@ android_app_import {
 	system_ext_specific: true,
 }
 
-dex_import {
-	name: "WfdCommon",
-	owner: "xiaomi",
-	jars: ["proprietary/framework/WfdCommon.jar"],
-}
-
 prebuilt_etc_xml {
 	name: "android.hardware.neuralnetworks@1.3-service-qti-hta",
 	owner: "xiaomi",
