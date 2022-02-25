@@ -75,12 +75,6 @@
                    <AsyncType>-1</AsyncType>
                 </Trigger>
 
-                <Trigger>
-                   <Primary>true</Primary>
-                   <AsyncId>VENDOR_HINT_WORKLOAD_HEAVY</AsyncId>
-                   <AsyncType>1</AsyncType>
-                </Trigger>
-
             </Triggers>
             <Configs>
                 <MEMLAT_FREQ_VOTE_LITTLE_PATH>/sys/class/devfreq/soc:qcom,cpu0-llcc-ddr-lat/cur_freq</MEMLAT_FREQ_VOTE_LITTLE_PATH>
