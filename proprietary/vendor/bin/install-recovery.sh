@@ -1,9 +1,9 @@
 #!/vendor/bin/sh
-if ! applypatch --check EMMC:/dev/block/bootdevice/by-name/recovery:134217728:48eb1a01d749e60cc7c3a6c1db54e6c483bddbef; then
+if ! applypatch --check EMMC:/dev/block/bootdevice/by-name/recovery:134217728:bf20c78399778a5a6e953beef8e3023cad0eb5cc; then
   applypatch  \
           --patch /vendor/recovery-from-boot.p \
-          --source EMMC:/dev/block/bootdevice/by-name/boot$(getprop ro.boot.slot_suffix):134217728:d82ea3a4b4faae6525b9c35b28299d21fad66520 \
-          --target EMMC:/dev/block/bootdevice/by-name/recovery:134217728:48eb1a01d749e60cc7c3a6c1db54e6c483bddbef && \
+          --source EMMC:/dev/block/bootdevice/by-name/boot$(getprop ro.boot.slot_suffix):134217728:4ce8a5ff60a9b34fdfa68fba4af16f86900e5e05 \
+          --target EMMC:/dev/block/bootdevice/by-name/recovery:134217728:bf20c78399778a5a6e953beef8e3023cad0eb5cc && \
       log -t recovery "Installing new recovery image: succeeded" && \
         echo "Installing new recovery image: succeeded" > /cache/recovery/last_install_recovery_status || \
       (log -t recovery "Installing new recovery image: failed" && \
